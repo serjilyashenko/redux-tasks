@@ -29,13 +29,12 @@ module.exports = {
   ],
   module: {
     rules: [
-      // TODO: Enable after prototype creating
-      // {
-      //   enforce: 'pre',
-      //   test: /\.jsx?$/,
-      //   exclude: /(node_modules|bower_components)/,
-      //   loader: 'eslint-loader'
-      // },
+      {
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'eslint-loader'
+      },
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
