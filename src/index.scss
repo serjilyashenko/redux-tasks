@@ -1,8 +1,122 @@
-.category-item {
-  padding-left: 20px;
+.grid-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__header {
+    height: 60px;
+    background: orange;
+  }
+
+  &__body {
+    display: flex;
+    height: calc(100vh - 60px);
+  }
+
+  &__body-left {
+    width: 370px;
+    height: 100%;
+  }
+
+  &__body-center {
+    flex-grow: 1;
+  }
 }
 
-.edit {
+.tree-list {
+  padding-left: 30px;
+}
+
+.categories-navigation {
+  padding: 15px 15px 0 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-category {
+  max-width: 80%;
+  margin-bottom: 40px;
+}
+
+.tree {
+  overflow-y: scroll;
+  height: 100%;
+
+  &-group {
+
+    &__row {
+      border: 1px solid #ced4da;
+      padding: 5px 15px;
+      color: #495056;
+      position: relative;
+
+      input[type="checkbox"] {
+        cursor: default;
+        margin-right: 10px;
+      }
+
+      &-link {
+        cursor: default;
+        display: inline-block;
+        color: black;
+      }
+
+      &-actions {
+        display: inline-block;
+        float: right;
+      }
+    }
+
+    & & &__row {
+      margin-top: -1px;
+      border-radius: 3px;
+
+      &:last-child {
+        margin-bottom: -1px;
+      }
+    }
+  }
+}
+
+.glyphicon {
   position: relative;
-  border: 0;
+  top: -1px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 1px 0 4px;
+
+  &__add {
+    background: url('/static/images/glyphicons-191-plus-sign.png') no-repeat center center /cover;
+
+    &:hover {
+      margin: 0 0 0 3px;
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__edit {
+    margin: 0 0 0 3px;
+    width: 17px;
+    background: url('/static/images/glyphicons-151-edit.png') no-repeat center center /cover;
+
+    &:hover {
+      margin: 0 0 0 3px;
+      width: 19px;
+      height: 17px;
+    }
+  }
+
+  &__delete {
+    background: url('/static/images/glyphicons-198-remove-circle.png') no-repeat center center /cover;
+
+    &:hover {
+      margin: 0 0 0 3px;
+      width: 17px;
+      height: 17px;
+    }
+  }
 }

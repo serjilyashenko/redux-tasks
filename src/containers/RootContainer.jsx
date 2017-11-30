@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import configureStore from 'redux/configureStore';
+import TaskPageContainer from 'containers/TaskPageContainer';
+import CategoryPageContainer from 'containers/CategoryPageContainer';
+
 import categoriesByIdActions from 'redux/state/categoriesById/actions';
 import categoriesByIdSelectors from 'redux/state/categoriesById/selectors';
 import tasksByIdActions from 'redux/state/tasksById/actions';
@@ -32,28 +36,28 @@ const initialState = {
       title: 'hello world 1',
       children: [3],
       parent: null,
-      tasks: []
+      tasks: [],
     },
     2: {
       id: 2,
       title: 'test category',
       children: [],
       parent: null,
-      tasks: [1, 2]
+      tasks: [1, 2],
     },
     3: {
       id: 3,
       title: 'hello 3',
       children: [4],
       parent: 1,
-      tasks: []
+      tasks: [],
     },
     4: {
       id: 4,
       title: 'hello 4',
       children: [],
       parent: 3,
-      tasks: []
+      tasks: [],
     },
   },
   tasksById: {
@@ -67,7 +71,7 @@ const initialState = {
       id: 2,
       title: 'task 2',
       completed: true,
-      category: 2
+      category: 2,
     },
   },
   rootCategories: [1, 2],
@@ -84,7 +88,17 @@ window.rootCategoriesSelectors = rootCategoriesSelectors; // TODO: remove it aft
 
 const RootContainer = () => (
   <Provider store={store}>
-    <TestComponentContainer />
+    <Router>
+      <div>
+        <Switch>
+          <Redirect exact from="/" to="/categories" />
+          <Route path="/categories" component={CategoryPageContainer} />
+          <Route path="/tasks/:id" component={TaskPageContainer} />
+          <Route path="/test" component={TestComponentContainer} />
+          <Route component={() => <div>404</div>} />
+        </Switch>
+      </div>
+    </Router>
   </Provider>
 );
 
