@@ -7,7 +7,7 @@ const CategoriesNavigation = () => (
     <div className="scrollable-container__header">
       <AddRootCategory />
     </div>
-    <div className="scrollable-container__content">
+    <div className="scrollable-container__content scrollable-container__content_left">
       <div className="tree">
         <div className="tree-group">
           <div className="tree-group__row">

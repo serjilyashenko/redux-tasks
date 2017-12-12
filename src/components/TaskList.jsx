@@ -22,7 +22,7 @@ const TaskList = () => (
         </form>
       </div>
     </div>
-    <div className="scrollable-container__content">
+    <div className="scrollable-container__content scrollable-container__content_right">
       <div className="task-item">
         <span className="task-item__title">
           <input name="" type="checkbox" checked onChange={() => {}} />

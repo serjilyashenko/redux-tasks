@@ -18,14 +18,12 @@ body {
   }
 
   &__body-left {
-    padding: 15px 20px 0 15px;
     min-width: 370px;
     height: 100%;
   }
 
   &__body-center {
     flex-grow: 1;
-    padding: 15px 20px 0 0px;
     min-width: 400px;
     height: 100%;
   }
@@ -37,12 +35,22 @@ body {
   flex-direction: column;
 
   &__header {
-
+    border-bottom: 1px solid #ced4da;
+    padding: 20px 20px 40px;
   }
 
   &__content {
     overflow-y: scroll;
     height: 100%;
+    padding: 8px 20px;
+
+    &_left {
+      padding-right: 10px;
+    }
+
+    &_right {
+      padding-left: 10px;
+    }
   }
 }
 
@@ -132,7 +140,6 @@ body {
 
 .adding-input {
   width: 400px;
-  padding-bottom: 40px;
 
   &__wrapper {
     overflow: hidden;
