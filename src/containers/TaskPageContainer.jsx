@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TaskPage from 'components/TaskPage';
 import Page404 from 'components/Page404';
-
-const TaskPage = props => <div>Task: {props.id}</div>;
-
-TaskPage.propTypes = {
-  id: PropTypes.number.isRequired,
-};
 
 const TaskPageContainer = props => {
   const id = Number(props.match.params.id);

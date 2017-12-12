@@ -3,7 +3,7 @@ import React from 'react'
 const hi = '';
 
 const AddRootCategory = () => (
-  <div className='add-category'>
+  <div className='adding-input adding-input_short'>
     <form className="input-group" onSubmit={() => {}}>
       <input
         name="add-category"

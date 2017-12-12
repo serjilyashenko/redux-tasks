@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import CategoriesNavigation from 'components/CategoriesNavigation';
+import TaskList from 'components/TaskList';
 
 const CategoryPageContainer = props => (
   <div className="grid-page">
@@ -31,7 +32,7 @@ const CategoryPageContainer = props => (
       <div className="grid-page__body-center">
         <Route
           path={`${props.match.url}/:id`}
-          component={props1 => <div>id: {props1.match.params.id}</div>}
+          component={localProps => <TaskList category={Number(localProps.match.params.id)} />}
         />
       </div>
     </div>

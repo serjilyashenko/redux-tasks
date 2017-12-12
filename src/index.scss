@@ -1,3 +1,7 @@
+body {
+  overflow-x: scroll;
+}
+
 .grid-page {
   display: flex;
   flex-direction: column;
@@ -14,39 +18,45 @@
   }
 
   &__body-left {
-    width: 370px;
+    padding: 15px 20px 0 15px;
+    min-width: 370px;
     height: 100%;
   }
 
   &__body-center {
     flex-grow: 1;
+    padding: 15px 20px 0 0px;
+    min-width: 400px;
+    height: 100%;
   }
 }
 
-.tree-list {
-  padding-left: 30px;
-}
-
-.categories-navigation {
-  padding: 15px 15px 0 15px;
+.scrollable-container {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
 
-.add-category {
-  max-width: 80%;
-  margin-bottom: 40px;
+  &__header {
+
+  }
+
+  &__content {
+    overflow-y: scroll;
+    height: 100%;
+  }
 }
 
 .tree {
-  overflow-y: scroll;
-  height: 100%;
+
+  &-list {
+    padding-left: 30px;
+  }
 
   &-group {
 
     &__row {
       border: 1px solid #ced4da;
+      border-radius: 3px;
       padding: 5px 15px;
       color: #495056;
       position: relative;
@@ -70,7 +80,6 @@
 
     & & &__row {
       margin-top: -1px;
-      border-radius: 3px;
 
       &:last-child {
         margin-bottom: -1px;
@@ -99,12 +108,12 @@
   }
 
   &__edit {
-    margin: 0 0 0 3px;
+    margin: 0 1px 0 3px;
     width: 17px;
     background: url('/static/images/glyphicons-151-edit.png') no-repeat center center /cover;
 
     &:hover {
-      margin: 0 0 0 3px;
+      margin: 0 0 0 2px;
       width: 19px;
       height: 17px;
     }
@@ -118,5 +127,51 @@
       width: 17px;
       height: 17px;
     }
+  }
+}
+
+.adding-input {
+  width: 400px;
+  padding-bottom: 40px;
+
+  &__wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+
+  &_short {
+    width: 300px;
+  }
+
+  &_right {
+    float: right;
+  }
+}
+
+.task-item {
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  padding: 5px 15px;
+  color: #495056;
+  position: relative;
+  line-height: 80px;
+  margin-bottom: -1px;
+
+  & input[type="checkbox"] {
+    margin-right: 20px;
+  }
+
+  &__title {
+    cursor: default;
+
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
+
+  &__actions {
+    display: inline-block;
+    float: right;
   }
 }
