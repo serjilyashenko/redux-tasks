@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
@@ -51,7 +52,7 @@ const Search = () => (
   </div>
 );
 
-const Header = () => (
+const CategoriesPageHeader = () => (
   <div className="grid-page__header">
     <RoutingLinks />
     <div className="column-area__container">
@@ -77,21 +78,26 @@ const Header = () => (
   </div>
 );
 
-const CategoryPageContainer = props => (
+const CategoryPage = ({ children }) => (
   <div className="grid-page">
-    <Header />
+    <CategoriesPageHeader />
     <div className="grid-page__body">
       <div className="grid-page__body-left">
-        <Route path={`${props.match.url}/`} component={CategoriesNavigation} />
+        <CategoriesNavigation />
       </div>
-      <div className="grid-page__body-center">
-        <Route
-          path={`${props.match.url}/:id`}
-          component={localProps => <TaskList category={Number(localProps.match.params.id)} />}
-        />
-      </div>
+      <div className="grid-page__body-center">{children}</div>
     </div>
   </div>
+);
+
+const CategoryPageContainer = props => (
+  <CategoryPage>
+    <Route exact path={`${props.match.url}/`} component={() => <div> &lt;- choose category</div>} />
+    <Route
+      path={`${props.match.url}/:id`}
+      component={localProps => <TaskList category={Number(localProps.match.params.id)} />}
+    />
+  </CategoryPage>
 );
 
 CategoryPageContainer.propTypes = {
