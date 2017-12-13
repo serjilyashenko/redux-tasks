@@ -23,10 +23,16 @@ describe('components', () => {
     it('should add category item', () => {
       const { wrapper } = setup();
       expect(wrapper.find('.category-item')).toHaveLength(0);
-      wrapper.find('input[type="text"]').props().onChange({target: 'new text 1'});
+      wrapper
+        .find('input[type="text"]')
+        .props()
+        .onChange({ target: 'new text 1' });
       wrapper.find('input[type="submit"]').simulate('submit');
       expect(wrapper.find('.category-item')).toHaveLength(1);
-      wrapper.find('input[type="text"]').props().onChange({target: 'new text 3'});
+      wrapper
+        .find('input[type="text"]')
+        .props()
+        .onChange({ target: 'new text 3' });
       wrapper.find('input[type="submit"]').simulate('submit');
       expect(wrapper.find('.category-item')).toHaveLength(2);
     });

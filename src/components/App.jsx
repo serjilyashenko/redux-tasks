@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 let idCounter = 10;
 
@@ -32,7 +32,7 @@ class TextInput extends Component {
   };
 
   handleOnSubmit = e => {
-    const {value} = this.state;
+    const { value } = this.state;
     e.preventDefault();
     if (value) {
       this.props.onSave(value);
@@ -43,7 +43,7 @@ class TextInput extends Component {
   };
 
   render() {
-    const {isEditing} = this.state;
+    const { isEditing } = this.state;
     const value = isEditing ? this.state.value : this.props.value;
     if (!isEditing) {
       return <span onDoubleClick={this.handleOnDoubleClick}>{this.props.value}</span>;
@@ -51,11 +51,15 @@ class TextInput extends Component {
 
     return (
       <form
-        style={{display: 'inline-block'}}
+        style={{ display: 'inline-block' }}
         onSubmit={this.handleOnSubmit}
         onBlur={this.handleOnSubmit}
       >
-        <input value={value} onChange={this.handleOnChange} onDoubleClick={this.handleOnDoubleClick}/>
+        <input
+          value={value}
+          onChange={this.handleOnChange}
+          onDoubleClick={this.handleOnDoubleClick}
+        />
       </form>
     );
   }
@@ -70,15 +74,15 @@ class App extends Component {
         title: 'hello world',
         children: [],
         parent: null,
-        tasks: []
+        tasks: [],
       },
       2: {
         id: 2,
         title: 'test category',
         children: [],
         parent: null,
-        tasks: [1, 2]
-      }
+        tasks: [1, 2],
+      },
     },
     rootCategories: [1, 2],
     activeCategory: 2,
@@ -93,9 +97,9 @@ class App extends Component {
         id: 2,
         title: 'task 2',
         completed: true,
-        category: 2
-      }
-    }
+        category: 2,
+      },
+    },
   };
 
   handleOnChange = e => {
@@ -105,7 +109,7 @@ class App extends Component {
   };
 
   handleOnSubmit = e => {
-    const {newCategoryTitle} = this.state;
+    const { newCategoryTitle } = this.state;
     e.preventDefault();
     this.addCategory(newCategoryTitle);
   };
@@ -116,20 +120,23 @@ class App extends Component {
     }
 
     const id = idCounter++;
-    const category = {title, id, deleted: false, children: [], parent: null};
+    const category = { title, id, deleted: false, children: [], parent: null };
     const rootCategories = this.state.rootCategories.slice();
-    let categoriesById = {...this.state.categoriesById};
+    let categoriesById = { ...this.state.categoriesById };
 
     if (parentId) {
       const parent = categoriesById[parentId];
       const children = parent.children.slice();
       children.push(category.id);
-      categoriesById = {...categoriesById, [parent.id]: {...parent, children, parent: parent.id}};
+      categoriesById = {
+        ...categoriesById,
+        [parent.id]: { ...parent, children, parent: parent.id },
+      };
     } else {
       rootCategories.push(category.id);
     }
 
-    categoriesById = {...categoriesById, [category.id]: category};
+    categoriesById = { ...categoriesById, [category.id]: category };
     this.setState({
       newCategoryTitle: '',
       rootCategories,
@@ -166,11 +173,11 @@ class App extends Component {
   handleOnClick = id => {
     this.setState({
       activeCategory: id,
-    })
+    });
   };
 
   renderCategories(ids) {
-    const {activeCategory} = this.state;
+    const { activeCategory } = this.state;
     return ids.map(id => {
       const category = this.state.categoriesById[id];
 
@@ -183,7 +190,7 @@ class App extends Component {
         <div key={id} className="category-item">
           <span onClick={() => this.handleOnClick(id)}>
             {activeCategory === id ? '>' : ''}
-            <TextInput value={category.title} onSave={value => this.handleOnSave(id, value)}/>{' '}
+            <TextInput value={category.title} onSave={value => this.handleOnSave(id, value)} />{' '}
           </span>
           <span onClick={() => this.addCategory('children name', id)}>+</span>{' '}
           <span onClick={() => this.removeCategory(id)}>x</span>
@@ -194,13 +201,11 @@ class App extends Component {
   }
 
   renderTasks(ids = []) {
-    return ids.map(id => (
-      <div key={id}>hello {this.state.tasksById[id].title}</div>
-    ));
+    return ids.map(id => <div key={id}>hello {this.state.tasksById[id].title}</div>);
   }
 
   render() {
-    const {activeCategory, categoriesById, rootCategories, newCategoryTitle} = this.state;
+    const { activeCategory, categoriesById, rootCategories, newCategoryTitle } = this.state;
     const activeTasks = activeCategory ? categoriesById[activeCategory].tasks : [];
     return (
       <div>
@@ -215,7 +220,7 @@ class App extends Component {
             aria-label="add-category"
           />
           <span className="input-group-btn">
-            <input type="submit" value="Add" className="btn btn-secondary"/>
+            <input type="submit" value="Add" className="btn btn-secondary" />
           </span>
         </form>
         <h2>Categories</h2>

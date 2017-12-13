@@ -29,7 +29,7 @@ const TaskList = () => (
           Todo Item #1
         </span>
         <div className="task-item__actions">
-          <span className="glyphicon glyphicon__edit"/>
+          <span className="glyphicon glyphicon__edit" />
         </div>
       </div>
       <div className="task-item">
@@ -38,7 +38,7 @@ const TaskList = () => (
           Todo Item #2
         </span>
         <div className="task-item__actions">
-          <span className="glyphicon glyphicon__edit"/>
+          <span className="glyphicon glyphicon__edit" />
         </div>
       </div>
       <div className="task-item">
@@ -47,7 +47,7 @@ const TaskList = () => (
           Todo Item #3
         </span>
         <div className="task-item__actions">
-          <span className="glyphicon glyphicon__edit"/>
+          <span className="glyphicon glyphicon__edit" />
         </div>
       </div>
       <div className="task-item">
@@ -56,7 +56,7 @@ const TaskList = () => (
           Todo Item #4
         </span>
         <div className="task-item__actions">
-          <span className="glyphicon glyphicon__edit"/>
+          <span className="glyphicon glyphicon__edit" />
         </div>
       </div>
       <div className="task-item">
@@ -65,7 +65,7 @@ const TaskList = () => (
           Todo Item #5
         </span>
         <div className="task-item__actions">
-          <span className="glyphicon glyphicon__edit"/>
+          <span className="glyphicon glyphicon__edit" />
         </div>
       </div>
     </div>

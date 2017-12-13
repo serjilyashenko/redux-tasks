@@ -1,7 +1,4 @@
-import {
-  ADD_ROOT_CATEGORY,
-  REMOVE_ROOT_CATEGORY
-} from './actionTypes';
+import { ADD_ROOT_CATEGORY, REMOVE_ROOT_CATEGORY } from './actionTypes';
 
 export default (state = [], action) => {
   switch (action.type) {

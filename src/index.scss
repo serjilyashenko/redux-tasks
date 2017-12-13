@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
 body {
   overflow-x: scroll;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 20px;
+  color: #495056;
 }
 
 .grid-page {
@@ -8,8 +13,18 @@ body {
   height: 100vh;
 
   &__header {
-    height: 60px;
-    background: orange;
+    min-height: 60px;
+    padding: 5px 20px;
+
+    &-left-area {
+      position: relative;
+      float: left;
+    }
+
+    &-right-area {
+      position: relative;
+      float: right;
+    }
   }
 
   &__body {
@@ -55,13 +70,11 @@ body {
 }
 
 .tree {
-
   &-list {
     padding-left: 30px;
   }
 
   &-group {
-
     &__row {
       border: 1px solid #ced4da;
       border-radius: 3px;
@@ -69,7 +82,7 @@ body {
       color: #495056;
       position: relative;
 
-      input[type="checkbox"] {
+      input[type='checkbox'] {
         cursor: default;
         margin-right: 10px;
       }
@@ -77,7 +90,7 @@ body {
       &-link {
         cursor: default;
         display: inline-block;
-        color: black;
+        color: #495056;
       }
 
       &-actions {
@@ -164,7 +177,7 @@ body {
   line-height: 80px;
   margin-bottom: -1px;
 
-  & input[type="checkbox"] {
+  & input[type='checkbox'] {
     margin-right: 20px;
   }
 
@@ -180,5 +193,34 @@ body {
   &__actions {
     display: inline-block;
     float: right;
+  }
+}
+
+.filter-item {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 30px;
+
+  &_checkbox input[type='checkbox'] {
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.routing-test {
+  opacity: 0.2;
+  transition: 1s;
+
+  &__container {
+    min-height: 20px;
+  }
+
+  &__container:hover & {
+    opacity: 1;
+    transition: 1s;
   }
 }

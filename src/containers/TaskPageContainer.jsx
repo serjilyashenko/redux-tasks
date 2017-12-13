@@ -7,7 +7,7 @@ const TaskPageContainer = props => {
   const id = Number(props.match.params.id);
 
   if (Number.isNaN(id)) {
-    return <Page404/>
+    return <Page404 />;
   }
 
   return <TaskPage id={id} />;
