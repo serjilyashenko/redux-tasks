@@ -179,7 +179,6 @@ body {
   border: 1px solid #ced4da;
   border-radius: 3px;
   padding: 5px 15px;
-  color: #495056;
   position: relative;
   line-height: 80px;
   margin-bottom: -1px;
@@ -190,6 +189,7 @@ body {
 
   &__title {
     cursor: default;
+    color: #495056;
 
     &:hover {
       color: #0056b3;
