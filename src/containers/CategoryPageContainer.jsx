@@ -52,13 +52,27 @@ const Search = () => (
 );
 
 const Header = () => (
-  <div className="grid-page__header" style={{ overflow: 'hidden', position: 'relative' }}>
+  <div className="grid-page__header">
     <RoutingLinks />
-    <div className="grid-page__header-left-area">
-      <h1>To-Do List</h1>
+    <div className="column-area__container">
+      <div className="column-area column-area_left">
+        <h1>To-Do List</h1>
+      </div>
+      <div className="column-area column-area_right">
+        <Search />
+      </div>
     </div>
-    <div className="grid-page__header-right-area">
-      <Search />
+    <div className="progress progress_thin">
+      <div
+        className="progress-bar"
+        role="progressbar"
+        style={{ width: '25%' }}
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        {' '}
+      </div>
     </div>
   </div>
 );

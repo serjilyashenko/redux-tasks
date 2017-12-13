@@ -15,16 +15,6 @@ body {
   &__header {
     min-height: 60px;
     padding: 5px 20px;
-
-    &-left-area {
-      position: relative;
-      float: left;
-    }
-
-    &-right-area {
-      position: relative;
-      float: right;
-    }
   }
 
   &__body {
@@ -41,6 +31,23 @@ body {
     flex-grow: 1;
     min-width: 400px;
     height: 100%;
+  }
+}
+
+.column-area {
+  position: relative;
+
+  &__container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &_left {
+    float: left;
+  }
+
+  &_right {
+    float: right;
   }
 }
 
@@ -209,6 +216,10 @@ body {
   &:last-child {
     padding-right: 0;
   }
+}
+
+.progress_thin {
+  height: 7px;
 }
 
 .routing-test {
