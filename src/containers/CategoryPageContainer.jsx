@@ -29,11 +29,13 @@ const RoutingLinks = () => (
 
 const Search = () => (
   <div>
-    <div className="filter-item filter-item_checkbox">
-      <input name="" type="checkbox" checked onChange={() => {}} />
-      <span>Show done</span>
+    <div className="inline-control inline-control_checkbox">
+      <label className="form-check-label">
+        <input type="checkbox" className="form-check-input" />
+        Show done
+      </label>
     </div>
-    <div className="filter-item">
+    <div className="inline-control">
       <form className="input-group" onSubmit={() => {}}>
         <input
           name="add-category"

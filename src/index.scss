@@ -57,11 +57,11 @@ body {
   flex-direction: column;
 
   &__header {
-    border-bottom: 1px solid #ced4da;
     padding: 20px 20px 40px;
   }
 
   &__content {
+    border-top: 1px solid #ced4da;
     overflow-y: scroll;
     height: 100%;
     padding: 8px 20px;
@@ -125,14 +125,14 @@ body {
   vertical-align: middle;
   margin: 0 1px 0 4px;
 
+  &:hover {
+    margin: 0 0 0 3px;
+    width: 17px;
+    height: 17px;
+  }
+
   &__add {
     background: url('/static/images/glyphicons-191-plus-sign.png') no-repeat center center /cover;
-
-    &:hover {
-      margin: 0 0 0 3px;
-      width: 17px;
-      height: 17px;
-    }
   }
 
   &__edit {
@@ -143,17 +143,21 @@ body {
     &:hover {
       margin: 0 0 0 2px;
       width: 19px;
-      height: 17px;
     }
   }
 
   &__delete {
     background: url('/static/images/glyphicons-198-remove-circle.png') no-repeat center center /cover;
+  }
+
+  &__forward {
+    margin: 0 3px 0 3px;
+    width: 24px;
+    background: url('/static/images/glyphicons-381-message-forward.png') no-repeat center center /cover;
 
     &:hover {
-      margin: 0 0 0 3px;
-      width: 17px;
-      height: 17px;
+      margin: 0 0 0 0;
+      width: 30px;
     }
   }
 }
@@ -203,18 +207,18 @@ body {
   }
 }
 
-.filter-item {
+.inline-control {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  padding-right: 30px;
+  margin-right: 30px;
 
   &_checkbox input[type='checkbox'] {
-    margin-right: 10px;
+    margin-top: 8px;
   }
 
   &:last-child {
-    padding-right: 0;
+    margin-right: 0;
   }
 }
 
