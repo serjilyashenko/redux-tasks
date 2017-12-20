@@ -1,9 +1,7 @@
-/* eslint-disable */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Link } from 'react-router-dom';
-import CategoriesNavigation from 'components/CategoriesNavigation';
-import TaskList from 'components/TaskList';
+import {Link} from "react-router-dom";
+import AddRootCategory from "./AddRootCategory";
+import RootCategoryListContainer from "../containers/RootCategoryListContainer";
 
 const RoutingLinks = () => (
   <div className="routing-test__container">
@@ -80,35 +78,25 @@ const CategoriesPageHeader = () => (
   </div>
 );
 
-const CategoryPage = ({ children }) => (
+const CategoryManager = ({ children, activeCategory }) => (
   <div className="grid-page">
     <CategoriesPageHeader />
     <div className="grid-page__body">
       <div className="grid-page__body-left">
-        <CategoriesNavigation />
+        <div className="scrollable-container">
+          <div className="scrollable-container__header">
+            <AddRootCategory />
+          </div>
+          <div className="scrollable-container__content scrollable-container__content_left">
+            <div className="tree">
+              <RootCategoryListContainer activeCategory={activeCategory} />
+            </div>
+          </div>
+        </div>
       </div>
       <div className="grid-page__body-center">{children}</div>
     </div>
   </div>
 );
 
-const CategoryPageContainer = props => (
-  <CategoryPage>
-    <Route exact path={`${props.match.url}/`} component={() => <div> &lt;- choose category</div>} />
-    <Route
-      path={`${props.match.url}/:id`}
-      component={localProps => <TaskList category={Number(localProps.match.params.id)} />}
-    />
-  </CategoryPage>
-);
-
-CategoryPageContainer.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string,
-    }).isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-export default CategoryPageContainer;
+export default CategoryManager;

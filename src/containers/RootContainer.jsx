@@ -4,13 +4,14 @@ import { connect, Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import configureStore from 'redux/configureStore';
 import TaskPageContainer from 'containers/TaskPageContainer';
-import CategoryPageContainer from 'containers/CategoryPageContainer';
+import CategoriesPageContainer from 'containers/CategoriesPageContainer';
 
 import categoriesByIdActions from 'redux/state/categoriesById/actions';
 import categoriesByIdSelectors from 'redux/state/categoriesById/selectors';
 import tasksByIdActions from 'redux/state/tasksById/actions';
 import tasksByIdSelectors from 'redux/state/tasksById/selectors';
 import rootCategoriesSelectors from 'redux/state/rootCategories/selectors';
+import SelectedCategoryPageContainer from "./SelectedCategoryPageContainer";
 
 const TestComponent = ({ state }) => (
   <div>
@@ -92,7 +93,8 @@ const RootContainer = () => (
       <div>
         <Switch>
           <Redirect exact from="/" to="/categories" />
-          <Route path="/categories" component={CategoryPageContainer} />
+          <Route path="/categories" exact component={CategoriesPageContainer} />
+          <Route path="/categories/:id" component={SelectedCategoryPageContainer} />
           <Route path="/tasks/:id" component={TaskPageContainer} />
           <Route path="/test" component={TestComponentContainer} />
           <Route component={() => <div>404</div>} />
