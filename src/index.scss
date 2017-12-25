@@ -212,14 +212,14 @@ body {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 30px;
+  margin: 3px 30px 3px 3px;
 
   &_checkbox input[type='checkbox'] {
     margin-top: 8px;
   }
 
   &:last-child {
-    margin-right: 0;
+    margin-right: 3px;
   }
 }
 
