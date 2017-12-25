@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import configureStore from 'redux/configureStore';
-import TaskPageContainer from 'containers/TaskPageContainer';
-import CategoriesPageContainer from 'containers/CategoriesPageContainer';
 
 import categoriesByIdActions from 'redux/state/categoriesById/actions';
 import categoriesByIdSelectors from 'redux/state/categoriesById/selectors';
 import tasksByIdActions from 'redux/state/tasksById/actions';
 import tasksByIdSelectors from 'redux/state/tasksById/selectors';
 import rootCategoriesSelectors from 'redux/state/rootCategories/selectors';
-import SelectedCategoryPageContainer from "./SelectedCategoryPageContainer";
+import SelectedCategoryPageContainer from './SelectedCategoryPageContainer';
+
+import TaskPageContainer from './TaskPageContainer';
+import CategoriesPageContainer from './CategoriesPageContainer';
 
 const TestComponent = ({ state }) => (
   <div>

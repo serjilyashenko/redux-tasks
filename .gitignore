@@ -7,6 +7,7 @@
 Thumbs.db
 
 npm-debug.log*
-yarn.lock
 yarn-debug.log*
 yarn-error.log*
+
+/flow-typed

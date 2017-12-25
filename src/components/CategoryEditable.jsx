@@ -1,8 +1,15 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import CategoryListContainer from '../containers/CategoryListContainer';
+import type { ActiveCategoryId, Category } from '../redux/state/categoriesById/types';
 
-const CategoryEditable = ({ category, activeCategory }) => (
+type Props = {
+  category: Category,
+  activeCategory: ActiveCategoryId,
+};
+
+const CategoryEditable = ({ category, activeCategory }: Props) => (
   <div className="tree-group">
     <div className="tree-group__row">
       <Link
@@ -10,7 +17,12 @@ const CategoryEditable = ({ category, activeCategory }) => (
         to={`/categories/${category.id}`}
         href={`/categories/${category.id}`}
       >
-        <input name="" type="checkbox" checked={Number(activeCategory) === Number(category.id)} onChange={() => {}} />
+        <input
+          name=""
+          type="checkbox"
+          checked={activeCategory ? activeCategory === category.id : false}
+          onChange={() => {}}
+        />
         {category.title}
       </Link>
       <span className="glyphicon glyphicon__edit" />

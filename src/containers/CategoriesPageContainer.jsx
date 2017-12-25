@@ -1,21 +1,11 @@
-/* eslint-disable */
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
-import CategoryManager from '../components/CategoryManager';
+import CategoriesPage from '../components/CategoriesPage';
 
-const CategoriesPageContainer = props => (
-  <CategoryManager>
+const CategoriesPageContainer = () => (
+  <CategoriesPage>
     <div> &lt;- choose category</div>
-  </CategoryManager>
+  </CategoriesPage>
 );
-
-CategoriesPageContainer.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string,
-    }).isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default CategoriesPageContainer;

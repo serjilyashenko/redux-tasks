@@ -13,13 +13,14 @@ body {
   height: 100vh;
 
   &__header {
-    min-height: 60px;
+    height: 93px;
     padding: 15px 20px;
+    overflow: hidden;
   }
 
   &__body {
     display: flex;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 93px);
   }
 
   &__body-left {
@@ -224,6 +225,7 @@ body {
 
 .progress_thin {
   height: 7px;
+  margin-top: 10px;
 }
 
 .routing-test {
