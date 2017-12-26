@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import TaskList from '../components/TaskList';
 import CategoriesPage from '../components/CategoriesPage';
+import TaskListContainer from './TaskListContainer';
 
 type Props = {
   match: {
@@ -11,9 +11,9 @@ type Props = {
   },
 };
 
-const SelectedCategoryPageContainer = (props: Props) => (
-  <CategoriesPage activeCategory={Number(props.match.params.id)}>
-    <TaskList />
+const SelectedCategoryPageContainer = ({ match: { params: { id } } }: Props) => (
+  <CategoriesPage activeCategory={Number(id)}>
+    <TaskListContainer activeCategory={Number(id)} />
   </CategoriesPage>
 );
 

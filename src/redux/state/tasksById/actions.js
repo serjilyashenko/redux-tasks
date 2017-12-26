@@ -10,7 +10,7 @@ import {
 } from './actionTypes';
 import { removeTaskFromCategory, addTaskToCategory } from '../categoriesById/actions';
 
-export const createTask = (category, title, description) => dispatch => {
+export const createTask = (category, title, description = '') => dispatch => {
   const id = generateId();
   dispatch({
     type: CREATE_TASK,

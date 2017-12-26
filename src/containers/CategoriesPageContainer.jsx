@@ -4,7 +4,7 @@ import CategoriesPage from '../components/CategoriesPage';
 
 const CategoriesPageContainer = () => (
   <CategoriesPage>
-    <div> &lt;- choose category</div>
+    <div className="empty-page"> &lt;- choose category</div>
   </CategoriesPage>
 );
 

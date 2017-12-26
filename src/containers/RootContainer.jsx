@@ -38,7 +38,7 @@ const initialState = {
       title: 'hello world 1',
       children: [3],
       parent: null,
-      tasks: [],
+      tasks: [3],
     },
     2: {
       id: 2,
@@ -74,6 +74,12 @@ const initialState = {
       title: 'task 2',
       completed: true,
       category: 2,
+    },
+    3: {
+      id: 3,
+      title: 'task 3',
+      completed: true,
+      category: 1,
     },
   },
   rootCategories: [1, 2],

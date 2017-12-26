@@ -27,6 +27,7 @@ const CategoryEditable = ({ category, activeCategory, actions }: Props) => (
           name=""
           type="checkbox"
           checked={activeCategory ? activeCategory === category.id : false}
+          onChange={() => ({})}
         />
         {category.title}
       </Link>
