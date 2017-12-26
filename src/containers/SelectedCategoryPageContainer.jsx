@@ -6,13 +6,13 @@ import CategoriesPage from '../components/CategoriesPage';
 type Props = {
   match: {
     params: {
-      id: number,
+      id: string,
     },
   },
 };
 
 const SelectedCategoryPageContainer = (props: Props) => (
-  <CategoriesPage activeCategory={props.match.params.id}>
+  <CategoriesPage activeCategory={Number(props.match.params.id)}>
     <TaskList />
   </CategoriesPage>
 );
