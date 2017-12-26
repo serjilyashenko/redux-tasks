@@ -5,6 +5,7 @@ import CategoryListContainer from '../containers/CategoryListContainer';
 import type { ActiveCategoryId, Category } from '../redux/state/categoriesById/types';
 
 export type CategoryActions = {
+  create: (title: string, parent: number) => any,
   remove: (id: number) => any,
 };
 
@@ -26,7 +27,6 @@ const CategoryEditable = ({ category, activeCategory, actions }: Props) => (
           name=""
           type="checkbox"
           checked={activeCategory ? activeCategory === category.id : false}
-          onChange={() => {}}
         />
         {category.title}
       </Link>
@@ -36,7 +36,10 @@ const CategoryEditable = ({ category, activeCategory, actions }: Props) => (
           className="glyphicon glyphicon__delete"
           onClick={() => actions.remove(category.id)}
         />
-        <span className="glyphicon glyphicon__add" />
+        <button
+          className="glyphicon glyphicon__add"
+          onClick={() => actions.create('New Category', category.id)}
+        />
       </div>
     </div>
     <div className="tree-list">
