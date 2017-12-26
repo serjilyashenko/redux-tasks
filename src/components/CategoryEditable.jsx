@@ -4,12 +4,17 @@ import { Link } from 'react-router-dom';
 import CategoryListContainer from '../containers/CategoryListContainer';
 import type { ActiveCategoryId, Category } from '../redux/state/categoriesById/types';
 
+export type CategoryActions = {
+  remove: (id: number) => any,
+};
+
 type Props = {
   category: Category,
   activeCategory: ActiveCategoryId,
+  actions: CategoryActions,
 };
 
-const CategoryEditable = ({ category, activeCategory }: Props) => (
+const CategoryEditable = ({ category, activeCategory, actions }: Props) => (
   <div className="tree-group">
     <div className="tree-group__row">
       <Link
@@ -27,7 +32,10 @@ const CategoryEditable = ({ category, activeCategory }: Props) => (
       </Link>
       <span className="glyphicon glyphicon__edit" />
       <div className="tree-group__row-actions">
-        <span className="glyphicon glyphicon__delete" />
+        <button
+          className="glyphicon glyphicon__delete"
+          onClick={() => actions.remove(category.id)}
+        />
         <span className="glyphicon glyphicon__add" />
       </div>
     </div>
