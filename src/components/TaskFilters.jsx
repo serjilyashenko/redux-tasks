@@ -1,13 +1,16 @@
+// @flow
 import * as React from 'react';
 
 export type TaskFiltersProps = {
   completedFilter: boolean,
+  nameFilter: string,
   actions: {
     filterByCompleted: () => any,
+    setFilterName: (filterName: string) => any,
   },
 };
 
-const TaskFilters = ({ completedFilter, actions }: TaskFiltersProps) => (
+const TaskFilters = ({ completedFilter, nameFilter, actions }: TaskFiltersProps) => (
   <div>
     <div className="inline-control inline-control_checkbox">
       <label htmlFor="task-filter" className="form-check-label">
@@ -26,11 +29,10 @@ const TaskFilters = ({ completedFilter, actions }: TaskFiltersProps) => (
         <input
           name="add-category"
           type="text"
-          value="search"
-          onChange={() => {}}
+          value={nameFilter}
+          onChange={event => actions.setFilterName(event.target.value)}
           className="form-control"
-          placeholder="Enter category title"
-          aria-label="add-category"
+          placeholder="Search"
         />
         <span className="input-group-btn">
           <input type="submit" value="Search" className="btn btn-secondary" />
