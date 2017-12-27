@@ -5,6 +5,7 @@ import TaskList from '../components/TaskList';
 import type { Task } from '../redux/state/tasksById/types';
 import { tasksByCategorySelector } from '../redux/state/tasksById/selectors';
 import { completeTask, createTask } from '../redux/state/tasksById/actions';
+import type {ActiveCategoryId} from "../redux/state/categoriesById/types";
 
 export type TaskListActions = {
   create: () => any,
@@ -17,7 +18,7 @@ type Props = {
 };
 
 type OwnProps = {
-  activeCategory: number,
+  activeCategory: ActiveCategoryId,
 };
 
 const TaskListContainer = ({ tasks, actions }: Props) => (

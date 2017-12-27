@@ -5,35 +5,13 @@ import { Link } from 'react-router-dom';
 import type { Task } from '../redux/state/tasksById/types';
 import TaskEditor from './TaskEditor';
 import type { TaskActions } from '../containers/TaskPageContainer';
+import CategoryListContainer from "../containers/CategoryListContainer";
+import CategoryOnTaskPage from "./CategoryOnTaskPage";
 
 type CategoryProps = {
   id: number,
   children?: React.Node,
 };
-
-const Category = ({ id, children }: CategoryProps) => (
-  <div className="tree-group">
-    <div className="tree-group__row">
-      <Link className="tree-group__row-link" to={`/categories/${id}`} href={`/categories/${id}`}>
-        <input name="" type="checkbox" checked onChange={() => {}} />
-        Category {id}
-      </Link>
-      <div className="tree-group__row-actions">
-        <span className="glyphicon glyphicon__forward" />
-      </div>
-    </div>
-    <div className="tree-list">{children}</div>
-  </div>
-);
-
-const Categories = () => (
-  <div className="tree">
-    <Category id={1}>
-      <Category id={2} />
-      <Category id={3} />
-    </Category>
-  </div>
-);
 
 type Props = {
   task: Task,
@@ -53,7 +31,13 @@ const TaskPage = ({ task, actions }: Props) => (
       <div className="grid-page__body-left">
         <div className="scrollable-container">
           <div className="scrollable-container__content scrollable-container__content_left">
-            <Categories />
+            <div className="tree">
+              <CategoryListContainer
+                activeCategory={task.category}
+                activeTask={task.id}
+                CategoryComponent={CategoryOnTaskPage}
+              />
+            </div>
           </div>
         </div>
       </div>

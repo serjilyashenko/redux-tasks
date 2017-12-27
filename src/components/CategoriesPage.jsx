@@ -3,7 +3,9 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import TaskFilters from './TaskFilters';
 import type { ActiveCategoryId } from '../redux/state/categoriesById/types';
-import CategoryManager from './CategoryManager';
+import CategoryEditable from "./CategoryEditable";
+import CategoryListContainer from "../containers/CategoryListContainer";
+import AddRootCategoryContainer from "../containers/AddRootCategoryContainer";
 
 type Props = {
   activeCategory?: ActiveCategoryId,
@@ -39,7 +41,21 @@ const CategoriesPage = ({ children, activeCategory }: Props) => (
     <div className="grid-page__body">
       <div className="grid-page__body">
         <div className="grid-page__body-left">
-          <CategoryManager activeCategory={activeCategory || null} />
+
+          <div className="scrollable-container">
+            <div className="scrollable-container__header">
+              <AddRootCategoryContainer />
+            </div>
+            <div className="scrollable-container__content scrollable-container__content_left">
+              <div className="tree">
+                <CategoryListContainer
+                  activeCategory={activeCategory || null}
+                  CategoryComponent={CategoryEditable}
+                />
+              </div>
+            </div>
+          </div>
+
         </div>
         <div className="grid-page__body-center">{children}</div>
       </div>

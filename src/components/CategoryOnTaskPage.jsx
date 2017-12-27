@@ -2,23 +2,9 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import CategoryListContainer from '../containers/CategoryListContainer';
-import type { ActiveCategoryId, Category } from '../redux/state/categoriesById/types';
+import type { CategoryComponentProps } from './CategoryEditable';
 
-export type CategoryActions = {
-  create: (title: string, parent: number) => any,
-  remove: (id: number) => any,
-  moveTaskTo: (id: number) => any,
-};
-
-export type CategoryComponentProps = {
-  CategoryComponent: (props: CategoryComponentProps) => React.Node,
-  category: Category,
-  activeCategory: ActiveCategoryId,
-  activeTask?: number | null,
-  actions: CategoryActions,
-};
-
-const CategoryEditable = ({
+const CategoryOnTaskPage = ({
   CategoryComponent,
   category,
   activeCategory,
@@ -40,16 +26,8 @@ const CategoryEditable = ({
         />
         {category.title}
       </Link>
-      <span className="glyphicon glyphicon__edit" />
       <div className="tree-group__row-actions">
-        <button
-          className="glyphicon glyphicon__delete"
-          onClick={() => actions.remove(category.id)}
-        />
-        <button
-          className="glyphicon glyphicon__add"
-          onClick={() => actions.create('New Category', category.id)}
-        />
+        <button className="glyphicon glyphicon__forward" onClick={() => actions.moveTaskTo(category.id)} />
       </div>
     </div>
     <div className="tree-list">
@@ -63,8 +41,4 @@ const CategoryEditable = ({
   </div>
 );
 
-CategoryEditable.defaultProps = {
-  activeTask: null,
-};
-
-export default CategoryEditable;
+export default CategoryOnTaskPage;

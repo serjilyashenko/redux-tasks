@@ -54,6 +54,19 @@ export const removeTask = id => (dispatch, getState) => {
   dispatch(removeTaskFromCategory(id, task.category));
 };
 
+export const moveTaskTo = (id?: number, targetCategory: number) => (dispatch, getState) => {
+  const state = getState();
+  const task = taskByIdSelector(state, id);
+
+  if (!task) {
+    return;
+  }
+
+  dispatch(removeTaskFromCategory(id, task.category));
+  dispatch(addTaskToCategory(id, targetCategory));
+  dispatch(editTaskCategory(id, targetCategory));
+};
+
 export default {
   createTask,
   renameTask,
@@ -61,4 +74,5 @@ export default {
   completeTask,
   editTaskCategory,
   removeTask,
+  moveTaskTo,
 };
