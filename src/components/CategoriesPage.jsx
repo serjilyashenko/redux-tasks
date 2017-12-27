@@ -1,11 +1,11 @@
 // @flow
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import TaskFilters from './TaskFilters';
 import type { ActiveCategoryId } from '../redux/state/categoriesById/types';
-import CategoryEditable from "./CategoryEditable";
-import CategoryListContainer from "../containers/CategoryListContainer";
-import AddRootCategoryContainer from "../containers/AddRootCategoryContainer";
+import CategoryEditable from './CategoryEditable';
+import CategoryListContainer from '../containers/CategoryListContainer';
+import AddRootCategoryContainer from '../containers/AddRootCategoryContainer';
+import TaskFiltersContainer from '../containers/TaskFiltersContainer';
 
 type Props = {
   activeCategory?: ActiveCategoryId,
@@ -22,7 +22,7 @@ const CategoriesPage = ({ children, activeCategory }: Props) => (
           </Link>
         </div>
         <div className="column-area column-area_right">
-          <TaskFilters />
+          <TaskFiltersContainer />
         </div>
       </div>
       <div className="progress progress_thin">
@@ -41,7 +41,6 @@ const CategoriesPage = ({ children, activeCategory }: Props) => (
     <div className="grid-page__body">
       <div className="grid-page__body">
         <div className="grid-page__body-left">
-
           <div className="scrollable-container">
             <div className="scrollable-container__header">
               <AddRootCategoryContainer />
@@ -55,7 +54,6 @@ const CategoriesPage = ({ children, activeCategory }: Props) => (
               </div>
             </div>
           </div>
-
         </div>
         <div className="grid-page__body-center">{children}</div>
       </div>

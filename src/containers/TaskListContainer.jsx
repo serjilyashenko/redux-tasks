@@ -5,7 +5,8 @@ import TaskList from '../components/TaskList';
 import type { Task } from '../redux/state/tasksById/types';
 import { tasksByCategorySelector } from '../redux/state/tasksById/selectors';
 import { completeTask, createTask } from '../redux/state/tasksById/actions';
-import type {ActiveCategoryId} from "../redux/state/categoriesById/types";
+import type { ActiveCategoryId } from '../redux/state/categoriesById/types';
+import { filterByCompletedSelector } from '../redux/state/filterByCompleted/selectors';
 
 export type TaskListActions = {
   create: () => any,
@@ -25,9 +26,17 @@ const TaskListContainer = ({ tasks, actions }: Props) => (
   <TaskList tasks={tasks} actions={actions} />
 );
 
-const mapStateToProps = (state, { activeCategory }: OwnProps) => ({
-  tasks: tasksByCategorySelector(state, activeCategory),
-});
+const mapStateToProps = (state, { activeCategory }: OwnProps) => {
+  const categoryTasks = tasksByCategorySelector(state, activeCategory);
+
+  if (!filterByCompletedSelector(state)) {
+    return { tasks: categoryTasks };
+  }
+
+  const completedTasks = categoryTasks.filter(task => task.completed);
+
+  return { tasks: completedTasks };
+};
 
 const mapDispatchToProps = (dispatch, { activeCategory }: OwnProps) => ({
   actions: {

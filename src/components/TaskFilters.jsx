@@ -1,10 +1,23 @@
 import * as React from 'react';
 
-const TaskFilters = () => (
+export type TaskFiltersProps = {
+  completedFilter: boolean,
+  actions: {
+    filterByCompleted: () => any,
+  },
+};
+
+const TaskFilters = ({ completedFilter, actions }: TaskFiltersProps) => (
   <div>
     <div className="inline-control inline-control_checkbox">
       <label htmlFor="task-filter" className="form-check-label">
-        <input name="task-filter" type="checkbox" className="form-check-input" />
+        <input
+          name="task-filter"
+          type="checkbox"
+          className="form-check-input"
+          checked={completedFilter}
+          onChange={() => actions.filterByCompleted()}
+        />
         Show done
       </label>
     </div>

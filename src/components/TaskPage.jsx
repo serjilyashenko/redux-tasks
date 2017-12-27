@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import type { Task } from '../redux/state/tasksById/types';
 import TaskEditor from './TaskEditor';
 import type { TaskActions } from '../containers/TaskPageContainer';
-import CategoryListContainer from "../containers/CategoryListContainer";
-import CategoryOnTaskPage from "./CategoryOnTaskPage";
+import CategoryListContainer from '../containers/CategoryListContainer';
+import CategoryOnTaskPage from './CategoryOnTaskPage';
 
 type CategoryProps = {
   id: number,

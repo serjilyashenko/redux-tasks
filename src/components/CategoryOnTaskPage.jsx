@@ -27,7 +27,10 @@ const CategoryOnTaskPage = ({
         {category.title}
       </Link>
       <div className="tree-group__row-actions">
-        <button className="glyphicon glyphicon__forward" onClick={() => actions.moveTaskTo(category.id)} />
+        <button
+          className="glyphicon glyphicon__forward"
+          onClick={() => actions.moveTaskTo(category.id)}
+        />
       </div>
     </div>
     <div className="tree-list">

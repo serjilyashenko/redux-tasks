@@ -8,7 +8,7 @@ import { rootCategoryEntitiesSelector } from '../redux/state/rootCategories/sele
 import CategoryList from '../components/CategoryList';
 import type { CategoryListProps } from '../components/CategoryList';
 import type { CategoryComponentProps } from '../components/CategoryEditable';
-import type {ActiveCategoryId} from "../redux/state/categoriesById/types";
+import type { ActiveCategoryId } from '../redux/state/categoriesById/types';
 
 const CategoryListContainer = ({
   CategoryComponent,
