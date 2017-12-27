@@ -74,6 +74,7 @@ const initialState = {
       title: 'task 2',
       completed: true,
       category: 2,
+      description: 'Very important task',
     },
     3: {
       id: 3,

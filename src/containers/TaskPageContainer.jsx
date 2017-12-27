@@ -1,24 +1,50 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
-import TaskPage from 'components/TaskPage';
-import Page404 from 'components/Page404';
+import { connect } from 'react-redux';
+import TaskPage from '../components/TaskPage';
+import Page404 from '../components/Page404';
+import { taskByIdSelector } from '../redux/state/tasksById/selectors';
+import type { Task } from '../redux/state/tasksById/types';
+import { completeTask, editTaskDescription, renameTask } from '../redux/state/tasksById/actions';
 
-const TaskPageContainer = props => {
-  const id = Number(props.match.params.id);
+export type TaskActions = {
+  rename: (id: number, value: string) => any,
+  complete: (id: number) => any,
+  editDescription: (id: number, value: string) => any,
+};
 
-  if (Number.isNaN(id)) {
+type Props = {
+  task: Task | void,
+  actions: TaskActions,
+};
+
+type OwnProps = {
+  match: {
+    params: {
+      id: string,
+    },
+  },
+};
+
+const TaskPageContainer = ({ task, actions }: Props) => {
+  if (!task) {
     return <Page404 />;
   }
 
-  return <TaskPage id={id} />;
+  return <TaskPage task={task} actions={actions} />;
 };
 
-TaskPageContainer.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
+const mapStateToProps = (state: any, { match: { params: { id } } }: OwnProps) => ({
+  task: taskByIdSelector(state, id),
+});
 
-export default TaskPageContainer;
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    rename: (id: number, title: string) => dispatch(renameTask(id, title)),
+    complete: (id: number) => dispatch(completeTask(id)),
+    editDescription: (id: number, description: string) =>
+      dispatch(editTaskDescription(id, description)),
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskPageContainer);
